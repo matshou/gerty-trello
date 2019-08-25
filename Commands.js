@@ -1,18 +1,22 @@
 /**
- * Baseline test to see if bot is online.
- * Also a nice easter egg.
+ * When a use mentions Gerty the comment is considered
+ * either a command or query and will be treated as such
  */
-function askStory(notificaion)
+function postCommandOrQuery(notification)
 {
-  var notif = new Notification(notificaion);
+  var notif = new Notification(notification);
   if(Gerty.didUserMention(notif))
   {
     var comment = notif.addedComment();
-    if (new RegExp("what's the story", "i").test(comment.text())) {
-      comment.card().postComment("@" + notif.member().name() + " All systems nominal.");
+    var message = null;
+
+    if (new RegExp("ping", "i").test(comment.text())) {
+      message = "pong";
     }
-    else if (new RegExp("Status report", "i").test(comment.text())) {
-      comment.card().postComment("@" + notif.member().name() + " Seven bells and all's well.");
+    else message = "Unknown command or query.";
+    Gerty.postMentionComment(comment.card(), notif.member(), message);
+  }
+}
     }
   }
 }

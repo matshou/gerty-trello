@@ -1,21 +1,17 @@
 function Gerty() {}
 
 /**
- * Check if Mother was mentioned in the given notification.
+ * Check if Gerty was mentioned in the given notification.
  */
 Gerty.isMentioned = function(notif)
 {
-  if (notif.addedComment().card().comments().first().member().notTrellinator())
+  var is_mentioned = false;
+  notif.mentionedMembers().each(function(member)
   {
-    var is_mentioned = false;
-    notif.mentionedMembers().each(function(member)
-    {
-      if (Gerty.is(member))
-        is_mentioned = true;
-    });
-    return is_mentioned;
-  }
-  else return false;
+    if (Gerty.is(member)) {
+      is_mentioned = true; return false;
+    }
+  }); return is_mentioned;
 };
 
 /**
