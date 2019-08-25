@@ -5,7 +5,7 @@
 function askStory(notificaion)
 {
   var notif = new Notification(notificaion);
-  if(Muthur.didUserMention(notif))
+  if(Gerty.didUserMention(notif))
   {
     var comment = notif.addedComment();
     if (new RegExp("what's the story", "i").test(comment.text())) {
