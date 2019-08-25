@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $1 = "redeploy" ]
+then
+	bash apps/trellinator/bin/trellinator push
+	clasp deploy -i "$(head -1 deployment.id)"
+else
+	bash apps/trellinator/bin/trellinator $1 $2 $3
+fi
