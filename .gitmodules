@@ -1,6 +1,3 @@
-[submodule "apps/benko-board-trellinator"]
-	path = apps/benko-board-trellinator
-	url = git@github.com:iaindooley/benko-board-trellinator.git
 [submodule "apps/trellinator-libs"]
 	path = apps/trellinator-libs
 	url = git@github.com:iaindooley/trellinator-libs.git
