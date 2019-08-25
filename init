@@ -1,0 +1,13 @@
+#!/bin/bash
+git init
+git submodule add git@github.com:iaindooley/benko-board-trellinator.git apps/benko-board-trellinator
+git submodule add git@github.com:iaindooley/trellinator-libs.git apps/trellinator-libs
+git submodule add git@github.com:iaindooley/trellinator.git apps/trellinator
+git submodule init
+git submodule update
+mkdir -p boards global/all
+touch claspignore-template
+sudo apps/trellinator/bin/install
+cp apps/trellinator/test .
+git add .
+git commit -m "Init submodule and claspignore"
