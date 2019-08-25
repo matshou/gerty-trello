@@ -1,0 +1,2 @@
+#!/bin/bash
+bash apps/trellinator/bin/trellinator $1 $2 $3
