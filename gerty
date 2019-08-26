@@ -2,7 +2,13 @@
 if [ $1 = "redeploy" ]
 then
 	bash apps/trellinator/bin/trellinator push
-	clasp deploy -i "$(head -1 deployment.id)"
+	clasp deploy -i "$(head -1 deployment.meta)"
+elif [ $1 = "test" ]
+then
+	API_KEY="$(head -1 trello-api.meta)"
+	TOKEN="$(head -1 trello-token.meta)"
+	cd boards/$2/$3.js.murphy
+	node default.run.js $API_KEY $TOKEN
 else
 	bash apps/trellinator/bin/trellinator $1 $2 $3
 fi
