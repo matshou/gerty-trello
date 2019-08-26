@@ -12,7 +12,7 @@ function ping(notification)
       if(mentioned && new RegExp("ping", "i").test(comment.text()))
       {
         var name = notif.member().name();
-        Trellinator.log("INFO: Responding to ping query from user " + name);
+        Logger.info("Responding to ping query from user " + name);
         comment.card().postComment("pong");
       }
   }

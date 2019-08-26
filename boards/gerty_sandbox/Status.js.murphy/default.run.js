@@ -23,6 +23,7 @@ eval(murphy.load(__dirname,"../../../apps/trellinator-libs/TestConnector.js"));
 eval(murphy.load(__dirname,"../../../apps/trellinator-libs/TrelloApi.js"));
 eval(murphy.load(__dirname,"../../../core/Gerty.js"));
 eval(murphy.load(__dirname,"../../../core/Utils.js"));
+eval(murphy.load(__dirname,"../../../core/Logger.js"));
 //INCLUDE ANY OTHER REQUIRED FILES HERE
 eval(murphy.load(__dirname,"../Status.js"));
 eval(murphy.load(__dirname,"notifications/default.run.js/card_created.js"));

@@ -1,7 +1,11 @@
 function Logger() {}
 
-Logger.print = function(log)
+Logger.info = function(log)
 {
-  board = new Trellinator().board("Nostromo");
-  board.card(new RegExp("Terminal")).postComment(log);
+  Trellinator.log("INFO: " + log);
+}
+
+Logger.debug = function(log)
+{
+  Trellinator.log("DEBUG: " + log);
 }
