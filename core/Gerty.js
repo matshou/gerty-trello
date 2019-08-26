@@ -4,28 +4,39 @@ function Gerty() {}
 Gerty.username = "gertyb";
 
 /**
- * Check if Gerty was mentioned in the given notification.
+ * Returns true if Gery has been mentioned in the given notification.
  */
 Gerty.isMentioned = function(notif)
 {
-  var is_mentioned = false;
-  notif.mentionedMembers().each(function(member)
-  {
-    if (Gerty.is(member)) {
-      is_mentioned = true; return false;
-    }
-  }); return is_mentioned;
-};
-
-/**
- * Returns true if the member resolved from the
- * given notification mentioned Gerty
- */
-Gerty.didUserMention = function(notif)
-{
-  return notif.member().notTrellinator() && Gerty.isMentioned(notif);
+  return Utils.isUserMentioned(Gerty.username);
 }
 
+/**
+ * Returns true if Gerty is added to the given card.
+ */
+Gerty.isAddedToCard = function(card)
+{
+  var is_added = false;
+  card.members().each(function(member)
+  {
+    if (member.name() == Gerty.username) {
+      is_added = true; return false;
+    }
+  });
+  Logger.debug("Checking if Gerty is added to card \"" + card.name() +
+    '\"' + " (result: " + is_added + ')');
+
+  return is_added;
+}
+
+/**
+ * Post a comment on the given card with a mention to the specified member.
+ * E.g: @some_user Hello!
+ */
+Gerty.postComment = function(element, member, comment)
+{
+  element.card().postComment('@' + member.name() + ' ' + comment);
+}
 
 /**
  * Returns true if the given member is Gerty

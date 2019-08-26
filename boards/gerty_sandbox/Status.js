@@ -1,5 +1,5 @@
 /**
- * When a use mentions Gerty with a ping query.
+ * When a user mentions Gerty with a ping query.
  * This is used to test bot responsiveness.
  */
 function ping(notification)
