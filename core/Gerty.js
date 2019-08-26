@@ -1,4 +1,7 @@
+
 function Gerty() {}
+
+Gerty.username = "gertyb";
 
 /**
  * Check if Gerty was mentioned in the given notification.
