@@ -25,11 +25,14 @@ eval(murphy.load(__dirname,"../../../core/Gerty.js"));
 eval(murphy.load(__dirname,"../../../core/Utils.js"));
 eval(murphy.load(__dirname,"../../../core/Logger.js"));
 //INCLUDE ANY OTHER REQUIRED FILES HERE
+eval(murphy.load(__dirname,"../Action.js"));
 eval(murphy.load(__dirname,"../Status.js"));
 eval(murphy.load(__dirname,"notifications/default.run.js/card_created.js"));
 eval(murphy.load(__dirname,"notifications/default.run.js/comment_posted.js"));
 eval(murphy.load(__dirname,"notifications/default.run.js/mention_gerty.js"));
 eval(murphy.load(__dirname,"notifications/default.run.js/ping_gerty.js"));
+eval(murphy.load(__dirname,"notifications/default.run.js/added_attachment.js"));
+eval(murphy.load(__dirname,"notifications/default.run.js/added_to_card.js"));
 //SET SOME MOCKING VARIABLES
 TestConnector.test_base_dir = __dirname;
 TestConnector.use_sequencer = true;//where multiple URLs need to be cached depending on when they are called
@@ -54,3 +57,5 @@ ExecutionQueue.fake_push = function(name,params,signature,time)
 //ADD YOUR TEST FUNCTIONS HERE
 ping(mention_gerty);
 ping(ping_gerty);
+addedGertyMemberToCard(add_to_card_notif);
+addedBoardAttachmentToCard(add_attachment_notif);
