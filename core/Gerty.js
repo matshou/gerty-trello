@@ -37,11 +37,3 @@ Gerty.postComment = function(element, member, comment)
 {
   element.card().postComment('@' + member.name() + ' ' + comment);
 }
-
-/**
- * Returns true if the given member is Gerty
- */
-Gerty.is = function(member)
-{
-  return member.name() == "Gerty6000";
-}
