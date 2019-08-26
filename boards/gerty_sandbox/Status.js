@@ -7,7 +7,7 @@ function ping(notification)
   try {
       var notif = new Notification(notification);
       var comment = notif.addedComment();
-      var mentioned = Utils.isUserMentioned(comment.text(), Gerty.username);
+      var mentioned = BoardUtils.isUserMentioned(comment.text(), Gerty.username);
 
       if(mentioned && new RegExp("ping", "i").test(comment.text()))
       {
